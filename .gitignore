@@ -5,6 +5,7 @@ __pycache__/
 .env.*
 !.env.example
 node_modules/
+.venv-proof/
 *.log
 *.sqlite*
 *.db

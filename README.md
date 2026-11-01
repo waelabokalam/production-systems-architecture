@@ -40,6 +40,13 @@ python3 -m unittest discover -s tests -v
 
 Read [the boundary examples](examples/boundary_contracts.py), [their checks](tests/test_boundary_contracts.py), and the [sanitization notes](SANITIZATION.md).
 
+## New: runnable MCP boundary and local tracing proof
+
+- **[TQEN read-only MCP tools](case-studies/tqen-mcp-tool.md)**: an official-SDK stdio server, strict JSON schemas, server-bound tenant/branch scope, deterministic invoice previews, inert injection-like source text and real protocol regression tests. Synthetic fixtures; no live database writes or model key.
+- **[ClinicalBridge OpenTelemetry proof](case-studies/clinicalbridge-tracing.md)**: locally tested orchestration/retrieval spans with parent-child relationships and no clinical payloads in exported telemetry, plus a reviewable patch against the public academic prototype.
+
+Install the optional pinned proof dependencies with `python -m pip install -r requirements-proof.txt`, then run `python -m pytest -q -p no:cacheprovider proof_tests`. The original standard-library suite remains independent of those dependencies.
+
 The [CI workflow](.github/workflows/verify.yml) runs the same standard-library suite without credentials or external services. Its first hosted result will be available after publication.
 
 ## More public engineering work

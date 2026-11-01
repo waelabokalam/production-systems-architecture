@@ -1,0 +1,359 @@
+diff --git a/README.md b/README.md
+index 00b3701..3943331 100644
+--- a/README.md
++++ b/README.md
+@@ -74,3 +74,20 @@ python3 -m eval.run_stress_tests
+ Course-project contributors listed in the evaluation report: Mhd Wael Abo Kalam, Marvan Ahmad, Talal Haneyeh and Karim S M Seyam.
+ 
+ More shipped product work: [TQEN](https://tqentech.com), [Crave It](https://craveitsyria.com), and [sanitized production architecture case studies](https://github.com/waelabokalam/production-systems-architecture).
++
++## Optional local OpenTelemetry evaluation
++
++The orchestrator, agent calls and both retrieval functions have opt-in spans. By default tracing is disabled and requires no SDK or endpoint. Enable a per-context, in-memory exporter explicitly:
++
++```python
++from orchestrator.observability import LocalTracing
++from orchestrator.orchestrator import process_alert
++
++telemetry = LocalTracing(enabled=True)
++with telemetry.activate():
++    result = process_alert(synthetic_alert)
++spans = telemetry.exporter.get_finished_spans()
++telemetry.shutdown()
++```
++
++Install `requirements-observability.txt` and run `python -m pytest -q -p no:cacheprovider eval/test_observability.py` for the provider-free instrumentation checks. They exercise real orchestration and retrieval functions with deterministic external-provider adapters. Span names are closed constants; only outcomes and document counts are recorded. Prompts, patient IDs, retrieved text, result bodies, exception messages and stack traces are not exported. Existing application session logs are unchanged and must be handled separately. This is an academic prototype with local verification, not a clinical deployment or measured latency improvement.
+diff --git a/agents/anamnesis_agent.py b/agents/anamnesis_agent.py
+index 9591fbc..70ec8c5 100644
+--- a/agents/anamnesis_agent.py
++++ b/agents/anamnesis_agent.py
+@@ -21,6 +21,7 @@ exercise it, since the agent will eventually run against unseen alerts too.
+ """
+ import json
+ import os
++from orchestrator.observability import trace_operation
+ from langchain_chroma import Chroma
+ from langchain_google_genai import GoogleGenerativeAIEmbeddings
+ from langchain_core.prompts import ChatPromptTemplate
+@@ -142,6 +143,7 @@ def get_vectorstore():
+     )
+ 
+ 
++@trace_operation("anamnesis_retrieval")
+ def retrieve_chunks(patient_id: str, query: str, k: int = 6) -> list[str]:
+     """Same hard patient_id metadata filter as the EHR agent -- non-negotiable
+     for a multi-patient store."""
+@@ -221,4 +223,4 @@ if __name__ == "__main__":
+ 
+     print(f"Running Anamnesis agent for {patient_id}...\n")
+     result = run_anamnesis_agent(patient_id, clinical_question, anamnesis_query)
+-    print(json.dumps(result, indent=2))
+\ No newline at end of file
++    print(json.dumps(result, indent=2))
+diff --git a/agents/ehr_agent.py b/agents/ehr_agent.py
+index 396b014..a37f071 100644
+--- a/agents/ehr_agent.py
++++ b/agents/ehr_agent.py
+@@ -19,6 +19,7 @@ and breaks the moment the store has more than one patient in it.
+ """
+ import json
+ import os
++from orchestrator.observability import trace_operation
+ from langchain_chroma import Chroma
+ from langchain_google_genai import GoogleGenerativeAIEmbeddings
+ from langchain_core.prompts import ChatPromptTemplate
+@@ -161,6 +162,7 @@ def get_vectorstore():
+     )
+ 
+ 
++@trace_operation("ehr_retrieval")
+ def retrieve_chunks(patient_id: str, query: str, k: int = 6) -> list[str]:
+     """
+     Retrieves the top-k EHR chunks for a SPECIFIC patient only.
+@@ -261,4 +263,4 @@ if __name__ == "__main__":
+ 
+     print(f"Running EHR agent for {patient_id}...\n")
+     result = run_ehr_agent(patient_id, clinical_question, ehr_query)
+-    print(json.dumps(result, indent=2))
+\ No newline at end of file
++    print(json.dumps(result, indent=2))
+diff --git a/orchestrator/orchestrator.py b/orchestrator/orchestrator.py
+index bfed4eb..1d135e2 100644
+--- a/orchestrator/orchestrator.py
++++ b/orchestrator/orchestrator.py
+@@ -23,6 +23,7 @@ import json
+ import os
+ import time
+ from datetime import datetime, timezone
++from orchestrator.observability import trace_operation
+ 
+ from agents.triage_agent import run_triage
+ from agents.ehr_agent import run_ehr_agent
+@@ -48,6 +49,7 @@ def _log_event(session_log: list, agent: str, event: str, detail: dict = None):
+     })
+ 
+ 
++@trace_operation("agent_attempt")
+ def _run_with_retry(fn, *args, max_retries: int = 2, agent_name: str = "agent", **kwargs):
+     """
+     Simple retry wrapper (spec 6.5: 'implement retry logic and fallback strategies
+@@ -72,6 +74,7 @@ def _run_with_retry(fn, *args, max_retries: int = 2, agent_name: str = "agent",
+     )
+ 
+ 
++@trace_operation("orchestrator")
+ def process_alert(alert: dict) -> dict:
+     """
+     Main orchestration entrypoint (spec 4.2 data flow, steps 1-6).
+@@ -195,4 +198,4 @@ if __name__ == "__main__":
+ 
+     print(f"\n=== SESSION LOG ({len(result['session_log'])} events) ===")
+     for event in result["session_log"]:
+-        print(f"  [{event['timestamp']}] {event['agent']}: {event['event']}")
+\ No newline at end of file
++        print(f"  [{event['timestamp']}] {event['agent']}: {event['event']}")
+diff --git a/orchestrator/observability.py b/orchestrator/observability.py
+new file mode 100644
+index 0000000..82f4561
+--- /dev/null
++++ b/orchestrator/observability.py
+@@ -0,0 +1,76 @@
++"""Opt-in, local OpenTelemetry without clinical text or process-global exporters.
++
++SDK pattern: https://opentelemetry.io/docs/languages/python/instrumentation/
++Only closed operation names, outcomes and document counts enter spans. Arguments,
++results, patient identifiers, prompts and exception text never enter telemetry.
++"""
++from contextlib import contextmanager
++from contextvars import ContextVar
++from functools import wraps
++
++
++_tracer = ContextVar("clinicalbridge_tracer", default=None)
++OPERATIONS = frozenset({"orchestrator", "agent_attempt", "ehr_retrieval", "anamnesis_retrieval"})
++OUTCOMES = frozenset({"completed", "failed", "escalated_critical"})
++
++
++def trace_operation(operation):
++    if operation not in OPERATIONS:
++        raise ValueError("Unregistered trace operation")
++
++    def decorate(fn):
++        @wraps(fn)
++        def wrapped(*args, **kwargs):
++            tracer = _tracer.get()
++            if tracer is None:
++                return fn(*args, **kwargs)
++            from opentelemetry.trace import Status, StatusCode
++
++            # Explicitly disable automatic exception/stack capture: exception
++            # messages can contain clinical text even when arguments are omitted.
++            with tracer.start_as_current_span(
++                "clinicalbridge." + operation,
++                record_exception=False,
++                set_status_on_exception=False,
++            ) as span:
++                try:
++                    result = fn(*args, **kwargs)
++                except Exception:
++                    span.set_status(Status(StatusCode.ERROR))
++                    raise
++                outcome = result.get("status") if isinstance(result, dict) else None
++                if outcome in OUTCOMES:
++                    span.set_attribute("clinicalbridge.outcome", outcome)
++                if operation.endswith("retrieval") and isinstance(result, list):
++                    span.set_attribute("clinicalbridge.document_count", len(result))
++                span.set_status(Status(StatusCode.ERROR if outcome == "failed" else StatusCode.OK))
++                return result
++        return wrapped
++    return decorate
++
++
++class LocalTracing:
++    """No endpoint, credential, network exporter or global provider is configured."""
++    def __init__(self, *, enabled=False, exporter=None):
++        self.provider = self.tracer = self.exporter = None
++        if enabled:
++            from opentelemetry.sdk.resources import Resource
++            from opentelemetry.sdk.trace import TracerProvider
++            from opentelemetry.sdk.trace.export import SimpleSpanProcessor
++            from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
++            self.exporter = exporter if exporter is not None else InMemorySpanExporter()
++            self.provider = TracerProvider(resource=Resource({"service.name": "clinicalbridge-local-evaluation"}))
++            self.provider.add_span_processor(SimpleSpanProcessor(self.exporter))
++            self.tracer = self.provider.get_tracer("clinicalbridge.evaluation")
++
++    @contextmanager
++    def activate(self):
++        token = _tracer.set(self.tracer)
++        try:
++            yield self
++        finally:
++            _tracer.reset(token)
++
++    def shutdown(self):
++        if self.provider is not None:
++            self.provider.shutdown()
+diff --git a/eval/test_observability.py b/eval/test_observability.py
+new file mode 100644
+index 0000000..45be368
+--- /dev/null
++++ b/eval/test_observability.py
+@@ -0,0 +1,148 @@
++"""Provider-free tracing tests. Only LLM/vectorstore adapters are deterministic fakes."""
++import importlib
++import sys
++from types import ModuleType
++
++import pytest
++from opentelemetry.sdk.trace.export import SpanExporter, SpanExportResult
++from opentelemetry.trace import StatusCode
++
++from orchestrator.observability import LocalTracing, trace_operation
++
++
++SECRET = "synthetic-patient@example.invalid symptom-canary credential-canary"
++
++
++def load_workflow(monkeypatch):
++    for name, function in [
++        ("triage_agent", "run_triage"), ("ehr_agent", "run_ehr_agent"),
++        ("anamnesis_agent", "run_anamnesis_agent"), ("synthesis_agent", "run_synthesis_agent"),
++    ]:
++        module = ModuleType("agents." + name)
++        setattr(module, function, lambda *args, **kwargs: {})
++        monkeypatch.setitem(sys.modules, module.__name__, module)
++    sys.modules.pop("orchestrator.orchestrator", None)
++    workflow = importlib.import_module("orchestrator.orchestrator")
++    monkeypatch.setattr(workflow, "INTER_AGENT_DELAY_SECONDS", 0)
++    return workflow
++
++
++def serialized(spans):
++    return "\n".join(span.to_json() for span in spans)
++
++
++def test_disabled_preserves_result_without_exporting():
++    telemetry = LocalTracing()
++    @trace_operation("orchestrator")
++    def run(value):
++        return value
++    with telemetry.activate():
++        assert run(SECRET) == SECRET
++    assert telemetry.provider is None and telemetry.exporter is None
++
++
++def test_real_orchestrator_parentage_redaction_and_no_default_export(monkeypatch):
++    workflow = load_workflow(monkeypatch)
++    monkeypatch.setattr(workflow, "run_triage", lambda *args: {"urgency": "Routine", "clinical_question": SECRET, "ehr_query": SECRET, "anamnesis_query": SECRET})
++    @trace_operation("ehr_retrieval")
++    def retrieve(*args):
++        return [SECRET]
++    monkeypatch.setattr(workflow, "run_ehr_agent", lambda *args: {"documents": retrieve(*args)})
++    monkeypatch.setattr(workflow, "run_anamnesis_agent", lambda *args: {"raw_text": SECRET})
++    monkeypatch.setattr(workflow, "run_synthesis_agent", lambda *args: {"summary": SECRET})
++    telemetry = LocalTracing(enabled=True)
++    with telemetry.activate():
++        result = workflow.process_alert({"patient_id": SECRET, "alert_id": SECRET})
++    assert result["status"] == "completed"
++    spans = telemetry.exporter.get_finished_spans()
++    root = next(s for s in spans if s.name == "clinicalbridge.orchestrator")
++    attempts = [s for s in spans if s.name == "clinicalbridge.agent_attempt"]
++    retrieval = next(s for s in spans if s.name == "clinicalbridge.ehr_retrieval")
++    assert len(attempts) == 4
++    assert all(s.parent.span_id == root.context.span_id for s in attempts)
++    assert retrieval.parent.span_id in {s.context.span_id for s in attempts}
++    assert retrieval.attributes["clinicalbridge.document_count"] == 1
++    assert len({s.context.trace_id for s in spans}) == 1
++    assert SECRET not in serialized(spans)
++    assert "patient_id" not in serialized(spans)
++    assert all(not s.events for s in spans)
++    workflow.process_alert({"patient_id": SECRET})
++    assert len(telemetry.exporter.get_finished_spans()) == len(spans)
++    telemetry.shutdown()
++
++
++def test_exception_text_and_stack_are_never_exported():
++    @trace_operation("ehr_retrieval")
++    def fail():
++        raise ValueError(SECRET)
++    telemetry = LocalTracing(enabled=True)
++    with telemetry.activate(), pytest.raises(ValueError, match="symptom-canary"):
++        fail()
++    span, = telemetry.exporter.get_finished_spans()
++    assert span.status.status_code is StatusCode.ERROR
++    assert not span.events and span.status.description is None
++    assert SECRET not in serialized([span])
++    telemetry.shutdown()
++
++
++def test_returned_failure_has_error_status():
++    @trace_operation("orchestrator")
++    def fail():
++        return {"status": "failed", "error": SECRET}
++    telemetry = LocalTracing(enabled=True)
++    with telemetry.activate():
++        assert fail()["error"] == SECRET
++    span, = telemetry.exporter.get_finished_spans()
++    assert span.status.status_code is StatusCode.ERROR
++    assert SECRET not in serialized([span])
++    telemetry.shutdown()
++
++
++def test_offline_export_failure_does_not_break_answers():
++    class Offline(SpanExporter):
++        def export(self, spans):
++            return SpanExportResult.FAILURE
++    telemetry = LocalTracing(enabled=True, exporter=Offline())
++    @trace_operation("orchestrator")
++    def run():
++        return {"status": "completed"}
++    with telemetry.activate():
++        assert run() == {"status": "completed"}
++    telemetry.shutdown()
++
++
++def test_unknown_operation_is_not_accepted_as_a_dynamic_span_name():
++    with pytest.raises(ValueError, match="Unregistered"):
++        trace_operation(SECRET)
++
++
++@pytest.mark.parametrize("agent_name", ["ehr_agent", "anamnesis_agent"])
++def test_real_retrieval_functions_keep_hard_patient_filter_and_hide_text(monkeypatch, agent_name):
++    """Import real retrieval code; fake only external vector/embedding/LLM packages."""
++    for package, names in [
++        ("langchain_chroma", ["Chroma"]),
++        ("langchain_google_genai", ["GoogleGenerativeAIEmbeddings"]),
++        ("langchain_core.prompts", ["ChatPromptTemplate"]),
++        ("agents.llm_client", ["get_llm"]),
++    ]:
++        module = ModuleType(package)
++        for name in names:
++            setattr(module, name, object)
++        monkeypatch.setitem(sys.modules, package, module)
++    module_name = "agents." + agent_name
++    monkeypatch.delitem(sys.modules, module_name, raising=False)
++    module = importlib.import_module(module_name)
++    calls = []
++    class Store:
++        def similarity_search(self, query, *, k, filter):
++            calls.append((query, k, filter))
++            return [type("Document", (), {"page_content": SECRET})()]
++    monkeypatch.setattr(module, "get_vectorstore", lambda: Store())
++    telemetry = LocalTracing(enabled=True)
++    with telemetry.activate():
++        assert module.retrieve_chunks("synthetic-patient", SECRET, k=2) == [SECRET]
++    assert calls == [(SECRET, 2, {"patient_id": "synthetic-patient"})]
++    span, = telemetry.exporter.get_finished_spans()
++    assert span.attributes["clinicalbridge.document_count"] == 1
++    assert SECRET not in serialized([span]) and "synthetic-patient" not in serialized([span])
++    telemetry.shutdown()
+diff --git a/requirements-observability.txt b/requirements-observability.txt
+new file mode 100644
+index 0000000..5661a2a
+--- /dev/null
++++ b/requirements-observability.txt
+@@ -0,0 +1,3 @@
++# Optional local evaluation instrumentation, not required for default execution.
++opentelemetry-sdk==1.45.2
++pytest==9.2.0
