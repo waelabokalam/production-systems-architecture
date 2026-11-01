@@ -9,7 +9,7 @@ I'm [Mhd Wael Abo Kalam](https://github.com/waelabokalam). I independently built
 | System | Product | What to inspect |
 |---|---|---|
 | **[TQEN](case-studies/tqen.md)** | [Live restaurant intelligence and public AI agents](https://tqentech.com) | OCR-to-review boundary; exact-match rules; tenant/branch authorization; Haystack/Qdrant routing and SSE events |
-| **[ATG](case-studies/atg.md)** | Client-delivered logistics and freight operations | Case → Milestone → Task; RLS roles and case scope; guarded approval/rework and optimistic concurrency |
+| **[ATG](case-studies/atg.md)** | Six-role logistics mobile app and Administration web | Immutable shipment snapshots; RLS and Client-safe projections; private evidence; transactional notification outbox |
 | **[Crave It](case-studies/crave-it.md)** | [Live English/Arabic kitchen and subscription platform](https://craveitsyria.com) | Bilingual ordering; request approval; service-day preparation; kitchen and delivery states; owner/kitchen separation |
 
 ## Proof at a glance
@@ -18,7 +18,7 @@ I'm [Mhd Wael Abo Kalam](https://github.com/waelabokalam). I independently built
 |---|---|
 | TQEN: **108 automated tests** | Documented project delivery milestone; current frontend run: **109 passed, 2 skipped**, excluding the live-service test file |
 | ATG: **54 RLS-protected tables, 30 migrations, 15 Edge Functions** | Documented delivery baseline; public diagrams group the schema by responsibility instead of exporting commercial DDL |
-| ATG: **93/93 package tests** | Documented milestone; current local package run: **57 shared-types + 38 API-client = 95 passed** |
+| ATG: **508 backend acceptance assertions; 93/93 package tests** | Separate documented acceptance and package/workflow results; current local package run: **57 shared-types + 38 API-client = 95 passed** |
 | Crave It: **11 focused checks passed** | Current local localization, delivery-time and plan-request checks, using bundled pure modules |
 
 See [dated test-runner summaries](evidence/verification-2026-11-01.md) and [evidence provenance](evidence/README.md) for commands, scope and what each result demonstrates.

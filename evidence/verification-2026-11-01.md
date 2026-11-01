@@ -4,6 +4,8 @@ The following summaries were transcribed from actual local runs. Filesystem path
 
 ## ATG — shared contracts
 
+Separately, the documented backend acceptance on 2026-10-16 passed **508 assertions** using actual Auth, PostgreSQL, private Storage and Edge endpoints. It covered shipment request/attachment boundaries, payment proof review and resubmission, content audiences/revisions, recipient-scoped notifications and authorization denials. That recorded acceptance result is not counted as a new 2026-11-01 run or added to the package count below.
+
 Command: `vitest run`, from the shared-types package.
 
 ```text
