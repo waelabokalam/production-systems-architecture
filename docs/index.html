@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inspect role projections, deterministic read-only invoice tools, and recorded offline tracing evidence from Wael Abo Kalam's engineering work.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Engineering Explorer | Wael Abo Kalam</title>
+  <link rel="stylesheet" href="explorer.css">
+  <script defer src="explorer-model.js"></script>
+  <script defer src="explorer.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="identity" href="#main">Wael Abo Kalam <span>/ engineering</span></a>
+    <nav aria-label="Projects"><a href="#atg">ATG</a><a href="#tqen">TQEN</a><a href="#clinicalbridge">ClinicalBridge</a><a href="https://github.com/waelabokalam/production-systems-architecture">Source ↗</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Independent AI &amp; product engineering</p>
+      <h1 id="page-title">Engineering you<br>can inspect.</h1>
+      <p>Role boundaries, deterministic verification, and payload-free traces. Explore the contracts behind three systems.</p>
+    </section>
+    <div class="index-strip" aria-label="Evidence index">
+      <a href="#atg"><strong>ATG</strong><span>6-role operations platform</span><span class="mono">54-table RLS baseline</span></a>
+      <a href="#tqen"><strong>TQEN</strong><span>Read-only invoice boundary</span><span class="mono">26 protocol &amp; adversarial tests</span></a>
+      <a href="#clinicalbridge"><strong>ClinicalBridge</strong><span>Academic, offline tracing</span><span class="mono">Recorded helper spans</span></a>
+    </div>
+    <p id="load-status" class="notice" role="status">Loading bundled synthetic evidence…</p>
+    <noscript><p class="notice">JavaScript is off. The descriptions and source links below remain readable. Interactive results require JavaScript and a local or GitHub Pages HTTP server.</p></noscript>
+
+    <section id="atg" class="project" aria-labelledby="atg-title">
+      <div class="section-title"><span class="project-code">ATG</span><h2 id="atg-title">Permissions are data contracts.</h2></div>
+      <p class="lede">A six-role freight platform with shipment-owned workflow snapshots, guarded corrections, and server-side access checks.</p>
+      <div class="evidence-line"><span><strong>54</strong> RLS-protected tables</span><span><strong>508</strong> recorded backend assertions</span><a href="https://github.com/waelabokalam/production-systems-architecture/blob/133de892a49c9bb9b7cbe1437f8f0c7d40e14113/case-studies/atg.md">Case study &amp; scope ↗</a></div>
+      <div class="workspace atg-workspace">
+        <div class="control-side">
+          <h3>Inspect a projection</h3>
+          <fieldset id="role-control" disabled><legend>Actor role</legend><div class="role-options">
+            <label><input type="radio" name="role" value="owner" checked> Owner</label>
+            <label><input type="radio" name="role" value="manager"> Manager</label>
+            <label><input type="radio" name="role" value="employee"> Employee</label>
+            <label><input type="radio" name="role" value="client"> Client</label>
+          </div></fieldset>
+          <div class="checks"><label><input id="assigned" type="checkbox" checked disabled> Employee is assigned</label><label><input id="own-shipment" type="checkbox" checked disabled> Client owns shipment</label><label><input id="actor-active" type="checkbox" checked disabled> Actor is active</label></div>
+          <p class="annotation">Four interactive roles; the full architecture also includes Observer and Head Employee.</p>
+          <details><summary>All six role boundaries</summary><dl id="all-roles"><dt>Owner / Admin</dt><dd>Guarded administrative oversight.</dd><dt>Manager</dt><dd>Authorized operational scope.</dd><dt>Observer</dt><dd>Read-only management.</dd><dt>Head Employee</dt><dd>Assigned work and team supervision.</dd><dt>Employee</dt><dd>Assigned execution.</dd><dt>Client</dt><dd>Own shipments and public milestones.</dd></dl></details>
+        </div>
+        <div class="output-side">
+          <div class="output-heading"><h3>Returned JSON</h3><span id="projection-status" class="badge">Awaiting evidence</span></div>
+          <pre id="projection-output" tabindex="0" aria-label="Representative role projection">Representative keys include public_progress and internal_task. Client scope excludes internal drafts, staff requests and internal task details.</pre>
+          <p class="annotation"><strong>Excluded:</strong> <span id="excluded-fields">Select a role when the fixture loads.</span></p>
+        </div>
+      </div>
+      <div class="workflow">
+        <div class="output-heading"><h3>Ten-stage freight view</h3><button id="workflow-reset" type="button" disabled>Reset model</button></div>
+        <ol id="stage-list" class="stage-list" aria-label="Select a freight stage"><li>Shipment request</li><li>Management review</li><li>Client and document readiness</li><li>Origin preparation</li><li>Freight booking and dispatch</li><li>Transit tracking</li><li>Arrival and clearance</li><li>Warehouse or final-mile preparation</li><li>Delivery and supporting proof</li><li>Reconciliation and closure</li></ol>
+        <div class="workflow-command"><p id="stage-detail" class="mono">A shipment preserves its selected template version.</p><div class="actions"><button data-action="enter" type="button" disabled>Enter stage</button><button data-action="submit" type="button" disabled>Submit</button><button data-action="approve" type="button" disabled>Approve</button><button data-action="reject" type="button" disabled>Reject</button></div></div>
+        <p id="workflow-result" class="result" role="status">Try approving before submission, or entering a locked stage.</p>
+      </div>
+      <p class="scope-note">Sanitized representative projections, not an exported production schema. Browser toggles are not a security boundary. PostgreSQL functions and RLS enforce the real system. The normalized stage order and reduced review model illustrate selected contracts, not every production permission or workflow graph.</p>
+      <div class="source-row"><a href="evidence/atg.json">Fixture &amp; field provenance</a><a href="https://github.com/waelabokalam/production-systems-architecture/blob/c83a78e499cfba61631c48e511a43e846b573106/examples/boundary_contracts.py">Executable boundary spec</a></div>
+    </section>
+
+    <section id="tqen" class="project" aria-labelledby="tqen-title">
+      <div class="section-title"><span class="project-code">TQEN</span><h2 id="tqen-title">Extraction is not authorization.</h2></div>
+      <p class="lede">OCR proposes an editable draft. Exact identity and arithmetic checks produce a review preview, never an automatic approval.</p>
+      <ol class="pipeline" aria-label="Invoice processing boundary"><li><strong>OCR draft</strong><span>Untrusted extraction</span></li><li><strong>Deterministic checks</strong><span>Identity + exact arithmetic</span></li><li><strong>Read-only MCP</strong><span>Bound tenant and branch</span></li><li><strong>Human confirmation</strong><span>Outside this tool</span></li></ol>
+      <div class="workspace mcp-workspace">
+        <div class="request-side">
+          <h3>Exercise the boundary</h3>
+          <p class="mono bound-scope">Server-bound: tenant-a / branch-1</p>
+          <label for="mcp-scenario">Synthetic request</label>
+          <select id="mcp-scenario" disabled><option value="exact">Exact match</option><option value="injection">Prompt injection in source text</option><option value="foreign">Foreign tenant</option><option value="branch">Foreign branch</option><option value="missing">Missing invoice</option><option value="scope">Caller-supplied scope</option><option value="write">Mutation tool</option><option value="retrieval">Scoped retrieval</option><option value="empty">Empty retrieval</option></select>
+          <label for="tool-name">Tool name</label><select id="tool-name" disabled><option>invoice_review</option><option>retrieve_supplier_context</option><option>delete_invoice</option></select>
+          <label for="tool-args">JSON arguments</label><textarea id="tool-args" rows="5" spellcheck="false" disabled>{"invoice_id":"invoice-a"}</textarea>
+          <button id="invoke-tool" class="primary" type="button" disabled>Run preview</button>
+          <details><summary>Inspect the extraction draft</summary><pre id="draft-output" tabindex="0" aria-label="Synthetic pre-extracted invoice draft">Published synthetic line descriptions, quantities and prices. OCR is not run in the browser.</pre></details>
+          <p class="annotation">Local deterministic replay of published synthetic fixtures. No live OCR, model, database, or production MCP service is called.</p>
+        </div>
+        <div class="output-side">
+          <div class="output-heading"><h3>Tool result</h3><span id="mcp-status" class="badge">Awaiting evidence</span></div>
+          <pre id="mcp-output" tabindex="0" aria-label="Read-only MCP result">Strict schemas reject tenant_id, branch_id, role and mutation arguments. Instruction-like source text stays untrusted data.</pre>
+          <p id="mcp-explanation" class="result" role="status">No request has been run.</p>
+        </div>
+      </div>
+      <details class="schema-disclosure"><summary>Inspect the actual published tool schemas</summary><pre id="schema-output" tabindex="0" aria-label="Published MCP JSON schemas">invoice_review(invoice_id), retrieve_supplier_context(query, limit). Both are read-only and reject additional properties.</pre></details>
+      <div class="evidence-line"><span><strong>26</strong> real SDK protocol &amp; adversarial tests</span><a href="evidence/recorded-tests.txt">Recorded local run</a><a href="https://github.com/waelabokalam/production-systems-architecture/blob/c83a78e499cfba61631c48e511a43e846b573106/proof_tests/test_tqen_mcp.py">Assertions ↗</a></div>
+      <p class="scope-note">The MCP reference implementation is synthetic and locally tested over stdio JSON-RPC. Tool annotations describe intent; strict arguments, server-bound scope, immutable fixtures, and no write interface enforce this reference boundary.</p>
+      <div class="source-row"><a href="https://github.com/waelabokalam/production-systems-architecture/blob/c83a78e499cfba61631c48e511a43e846b573106/case-studies/tqen-mcp-tool.md">MCP source &amp; protocol proof</a><a href="https://github.com/waelabokalam/production-systems-architecture/blob/c83a78e499cfba61631c48e511a43e846b573106/case-studies/tqen.md">Product OCR architecture</a></div>
+    </section>
+
+    <section id="clinicalbridge" class="project" aria-labelledby="clinical-title">
+      <div class="section-title"><span class="project-code">ClinicalBridge</span><h2 id="clinical-title">Observe the work, not the payload.</h2></div>
+      <p class="lede">An academic multi-agent prototype with opt-in, in-memory OpenTelemetry. Exported spans contain bounded metadata, not clinical content.</p>
+      <div class="trace-toolbar"><label for="trace-filter">Recorded span status</label><select id="trace-filter" disabled><option value="all">All spans</option><option value="OK">OK only</option><option value="ERROR">ERROR only</option><option value="none">Empty view</option></select><p>Offline helper recording; not a production latency benchmark.</p></div>
+      <div class="workspace trace-workspace">
+        <div class="trace-side"><h3>Parent / child spans</h3><div id="trace-list" class="trace-list" aria-label="Recorded span selection">The fixture records an orchestrator, an agent call, retrieval, and a separate redacted error.</div></div>
+        <div class="output-side"><div class="output-heading"><h3>Span metadata</h3><span id="trace-status" class="badge">Awaiting evidence</span></div><pre id="trace-output" tabindex="0" aria-label="Selected recorded span">Only operation names, outcome, document count, status and timing enter this recording. Prompts, identifiers, text, exception messages and stack traces are excluded.</pre></div>
+      </div>
+      <p id="trace-description" class="scope-note">Newly recorded execution of the public portable helper using synthetic returns, not the full ClinicalBridge orchestrator. Stable fixture IDs; genuine local timings vary on regeneration. No model or patient dataset was used.</p>
+      <div class="evidence-line"><span><strong>6</strong> portable helper regression tests</span><span><strong>8</strong> upstream offline integration tests</span><a href="evidence/recorded-tests.txt">Recorded helper run</a></div>
+      <details class="historical"><summary>What does the historical 15/15 result mean?</summary><p>The academic project's published evaluation reports 5/5 gold scenarios and 15/15 designed failure checks, including manual review. Those historical results are separate from the six portable tracing tests and eight upstream offline instrumentation tests. The original comparison runner prints designed checks for manual review; they are not 15 automated tracing assertions.</p><div class="source-row"><a href="https://github.com/waelabokalam/production-systems-architecture/blob/c83a78e499cfba61631c48e511a43e846b573106/evidence/verification-2026-11-01.md">Historical evidence scope</a><a href="https://github.com/waelabokalam/clinicalbridge/blob/470a671da74abca95e15a3853cd2318a740581de/eval/compare_results.py">Original comparison runner</a></div></details>
+      <div class="source-row"><a href="evidence/explorer.json">Raw recorded spans &amp; fixtures</a><a href="https://github.com/waelabokalam/clinicalbridge/blob/470a671da74abca95e15a3853cd2318a740581de/orchestrator/observability.py">Published upstream instrumentation</a><a href="https://github.com/waelabokalam/clinicalbridge/blob/470a671da74abca95e15a3853cd2318a740581de/eval/test_observability.py">Offline integration tests</a></div>
+    </section>
+
+    <section class="reproduce" aria-labelledby="reproduce-title"><h2 id="reproduce-title">Run the evidence yourself.</h2><p>The page has no runtime packages, fonts, analytics, or CDN requests. Only bundled JSON is loaded.</p><pre tabindex="0" aria-label="Reproduction commands"># From the public repository root
+python3 -m unittest discover -s tests -v
+python3 -m http.server 8000 --directory docs
+
+# Optional Python proof dependencies, not website dependencies
+python -m pip install -r requirements-proof.txt
+python docs/evidence/generate_evidence.py
+python -m pytest -q -p no:cacheprovider proof_tests docs/tests/test_evidence_recorder.py</pre><p class="annotation">Source publication dates in the raw fixture are introducing-commit timestamps verified on the public remote, not filesystem dates or measured hosting times.</p><div class="source-row"><a href="evidence/generate_evidence.py">Evidence recorder</a><a href="https://github.com/waelabokalam/production-systems-architecture/blob/main/tests/test_docs_explorer.py">Explorer contract tests</a></div></section>
+  </main>
+  <footer><p>Wael Abo Kalam</p><a href="https://github.com/waelabokalam">More public engineering ↗</a></footer>
+</body>
+</html>

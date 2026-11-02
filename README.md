@@ -6,6 +6,8 @@ I'm [Mhd Wael Abo Kalam](https://github.com/waelabokalam). I independently built
 
 ## Start here
 
+[Open the interactive engineering explorer](https://waelabokalam.github.io/production-systems-architecture/) to inspect sanitized ATG role projections, the TQEN MCP boundary, and recorded ClinicalBridge tracing evidence.
+
 | System | Product | What to inspect |
 |---|---|---|
 | **[TQEN](case-studies/tqen.md)** | [Live restaurant intelligence and public AI agents](https://tqentech.com) | OCR-to-review boundary; exact-match rules; tenant/branch authorization; Haystack/Qdrant routing and SSE events |

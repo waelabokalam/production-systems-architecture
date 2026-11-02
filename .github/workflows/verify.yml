@@ -21,4 +21,6 @@ jobs:
       - name: Install pinned public MCP/tracing proof dependencies
         run: python -m pip install -r requirements-proof.txt
       - name: Verify MCP protocol and adversarial read-only boundaries
-        run: python -m pytest -q -p no:cacheprovider proof_tests
+        run: python -m pytest -q -p no:cacheprovider proof_tests docs/tests/test_evidence_recorder.py
+      - name: Verify interactive explorer models and controllers
+        run: node --test docs/tests/explorer.test.cjs

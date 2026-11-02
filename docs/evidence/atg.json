@@ -1,0 +1,41 @@
+{
+  "scope": "Sanitized representative projection keys derived from the published case study, not a production schema export. Four interactive roles are a subset of the six-role architecture.",
+  "source": "case-studies/atg.md",
+  "roles": [
+    {"id": "owner", "label": "Owner / Admin", "boundary": "Administrative and operational oversight; guarded commands."},
+    {"id": "manager", "label": "Manager", "boundary": "Authorized operational scope; no implicit account administration."},
+    {"id": "observer", "label": "Observer", "boundary": "Read-only management views; no management mutation."},
+    {"id": "head_employee", "label": "Head Employee", "boundary": "Assigned work and configured team supervision."},
+    {"id": "employee", "label": "Employee", "boundary": "Explicitly assigned task execution."},
+    {"id": "client", "label": "Client", "boundary": "Own shipments, public milestones, own vault and addressed requests."}
+  ],
+  "interactive_roles": ["owner", "manager", "employee", "client"],
+  "stages": [
+    "Shipment request",
+    "Management review",
+    "Client and document readiness",
+    "Origin preparation",
+    "Freight booking and dispatch",
+    "Transit tracking",
+    "Arrival and clearance",
+    "Warehouse or final-mile preparation",
+    "Delivery and supporting proof",
+    "Reconciliation and closure"
+  ],
+  "field_provenance": {
+    "public_progress": "examples/boundary_contracts.py: case_resource_visible resource value",
+    "internal_task": "examples/boundary_contracts.py: case_resource_visible resource value",
+    "internal_drafts": "case-studies/atg.md: Client projection excludes internal drafts (representative key)",
+    "staff_document_requests": "case-studies/atg.md: Client projection excludes staff-only document requests (representative key)",
+    "account_administration": "case-studies/atg.md: Manager is not an implicit account administrator (representative key)"
+  },
+  "representative_record": {
+    "public_progress": {"shipment": "synthetic-shipment", "milestone": "Shipment request"},
+    "internal_task": {"state": "in_progress", "assigned": ["synthetic-employee"]},
+    "internal_drafts": {"template_version": 1},
+    "staff_document_requests": ["synthetic-staff-request"],
+    "account_administration": {"command": "guarded_account_operation"}
+  },
+  "baseline": {"rls_protected_tables": 54, "migrations": 30, "edge_functions": 15, "recorded_backend_assertions": 508},
+  "model_scope": "The stage order is the published normalized freight view, not a universal production graph. Submit/approve/reject follow the public reduced task_move contract; role-to-action mapping is a representative allowlist for this explorer. Database RLS is not executed here."
+}
