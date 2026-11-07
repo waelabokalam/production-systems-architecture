@@ -1,0 +1,1280 @@
+{
+  "schema_version": 1,
+  "source": "synthetic_frozen_ocr",
+  "supplier_directory": [
+    {
+      "canonical_name": "معمل رواق الحب",
+      "currency": "SYP",
+      "items": [
+        {"name": "أرز قصير الحبة", "unit": "kg"},
+        {"name": "عدس أحمر", "unit": "kg"}
+      ]
+    },
+    {
+      "canonical_name": "Amber Whisk Pantry",
+      "currency": "USD",
+      "items": [
+        {"name": "Oat flakes", "unit": "kg"},
+        {"name": "Dried figs", "unit": "box"},
+        {"name": "Date syrup sachets", "unit": "carton"},
+        {"name": "Vanilla pods", "unit": "piece"}
+      ]
+    },
+    {
+      "canonical_name": "بساتين خيط الندى",
+      "currency": "SYP",
+      "items": [
+        {"name": "بندورة مطبخ", "unit": "kg"},
+        {"name": "بصل أحمر", "unit": "kg"},
+        {"name": "خيار بلدي", "unit": "kg"},
+        {"name": "خس روماني", "unit": "piece"},
+        {"name": "نعناع طازج", "unit": "g"}
+      ]
+    },
+    {
+      "canonical_name": "Spindle Kettle Provisions",
+      "currency": "SYP",
+      "items": [
+        {"name": "Sunflower oil", "unit": "l"},
+        {"name": "خل تفاح", "unit": "l"},
+        {"name": "Whole milk", "unit": "l"},
+        {"name": "Orange blossom water", "unit": "ml"}
+      ]
+    },
+    {
+      "canonical_name": "مخزن قنطرة الزعتر",
+      "currency": "SYP",
+      "items": [
+        {"name": "زعتر مجفف", "unit": "kg"},
+        {"name": "سمّاق مطحون", "unit": "kg"},
+        {"name": "قهوة مطحونة", "unit": "g"}
+      ]
+    },
+    {
+      "canonical_name": "معصرة ريشة الرمان",
+      "currency": "SYP",
+      "items": [
+        {"name": "دبس رمان", "unit": "l"},
+        {"name": "عصير ليمون", "unit": "l"},
+        {"name": "ماء زهر", "unit": "ml"}
+      ]
+    },
+    {
+      "canonical_name": "Cinder Poppy Bakehouse Supply",
+      "currency": "USD",
+      "items": [
+        {"name": "Pretzel rolls", "unit": "piece"},
+        {"name": "Sesame buns", "unit": "piece"},
+        {"name": "Rye loaves", "unit": "piece"},
+        {"name": "Sourdough crisps", "unit": "box"},
+        {"name": "Brioche sliders", "unit": "carton"}
+      ]
+    },
+    {
+      "canonical_name": "Juniper Ladle Pantry",
+      "currency": "USD",
+      "items": [
+        {"name": "Dried thyme", "unit": "g"},
+        {"name": "Sea salt flakes", "unit": "g"}
+      ]
+    },
+    {
+      "canonical_name": "أفران قوس الليمون",
+      "currency": "SYP",
+      "items": [
+        {"name": "رقائق خبز", "unit": "box"},
+        {"name": "كعك يانسون", "unit": "box"}
+      ]
+    },
+    {
+      "canonical_name": "Slate Blossom Chilled Goods",
+      "currency": "USD",
+      "items": [
+        {"name": "Strained yogurt", "unit": "kg"},
+        {"name": "Halloumi blocks", "unit": "box"},
+        {"name": "Drinking kefir", "unit": "l"}
+      ]
+    },
+    {
+      "canonical_name": "مخزن قنطرة الزعترية",
+      "currency": "SYP",
+      "items": [
+        {"name": "بذور كراوية", "unit": "kg"}
+      ]
+    },
+    {
+      "canonical_name": "معصرة ريشة الرمانة",
+      "currency": "SYP",
+      "items": [
+        {"name": "عصير رمان", "unit": "l"}
+      ]
+    }
+  ],
+  "invoices": [
+    {
+      "fixture_id": "dev-01-ar-clean",
+      "template_id": "rwaq-grain-grid",
+      "supplier_family": "rwaq-grain",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "معمل رواق الحب\nفاتورة توريد رقم SYN-D101\nالعملة: SYP\nالصنف | الكمية | الوحدة | سعر الوحدة | القيمة\nأرز قصير الحبة | ٧٫٥ | كغ | ٨٬٤٠٠ | ٦٣٬٠٠٠\nعدس أحمر | ٤ | كغ | ٥٬٧٠٠ | ٢٢٬٨٠٠\nالمجموع الفرعي: ٨٥٬٨٠٠\nالضريبة: ٠\nالإجمالي: ٨٥٬٨٠٠",
+        "invoice_number": "SYN-D101",
+        "invoice_date": "٢٠٢٦-٠٢-٠١",
+        "supplier_name": "معمل رواق الحب",
+        "currency": "SYP",
+        "stated_total": "٨٥٬٨٠٠",
+        "subtotal": "٨٥٬٨٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "أرز قصير الحبة", "quantity": "٧٫٥", "unit": "كغ", "unit_price": "٨٬٤٠٠", "line_total": "٦٣٬٠٠٠", "currency": "SYP"},
+          {"item_name": "عدس أحمر", "quantity": "٤", "unit": "كغ", "unit_price": "٥٬٧٠٠", "line_total": "٢٢٬٨٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معمل رواق الحب",
+        "currency": "SYP",
+        "stated_total": "85800",
+        "calculated_line_sum": "85800",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-02-en-clean",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D102\nAmber Whisk Pantry\nAmounts in USD\nOat flakes: 2.5 kg @ 3.20 = 8.00\nDried figs: 3 box @ 6.50 = 19.50\nMerchandise 27.50 / Tax 2.75 / Amount due 30.25",
+        "invoice_number": "SYN-D102",
+        "invoice_date": "2026-02-02",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "30.25",
+        "subtotal": "27.50",
+        "tax_amount": "2.75",
+        "lines": [
+          {"item_name": "Oat flakes", "quantity": "2.5", "unit": "kg", "unit_price": "3.20", "line_total": "8.00", "currency": "USD"},
+          {"item_name": "Dried figs", "quantity": "3", "unit": "box", "unit_price": "6.50", "line_total": "19.50", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "30.25",
+        "calculated_line_sum": "27.50",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-03-digit-drop",
+      "template_id": "dew-thread-market-slip",
+      "supplier_family": "dew-thread",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "bad_scan_digit_drop",
+      "frozen_ocr_extract": {
+        "raw_text": "بساتين خيط الندى — فاتورة خضار\nمرجع البيع SYN-D103\nبندورة مطبخ: ٢ كجم × ٣٬٨٠٠ = ٤٥٬٦٠٠\nبصل أحمر: ٣ كجم × ٦٬٥٠٠ = ١٩٬٥٠٠\nصافي الأصناف ٦٥٬١٠٠ | ضريبة ٠ | الإجمالي ٦٥٬١٠٠ SYP",
+        "invoice_number": "SYN-D103",
+        "invoice_date": "٢٠٢٦-٠٢-٠٣",
+        "supplier_name": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "٦٥٬١٠٠",
+        "subtotal": "٦٥٬١٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "بندورة مطبخ", "quantity": "٢", "unit": "كجم", "unit_price": "٣٬٨٠٠", "line_total": "٤٥٬٦٠٠", "currency": "SYP"},
+          {"item_name": "بصل أحمر", "quantity": "٣", "unit": "كجم", "unit_price": "٦٬٥٠٠", "line_total": "١٩٬٥٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "65100",
+        "calculated_line_sum": "65100",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-04-tax-total",
+      "template_id": "spindle-kettle-bilingual-invoice",
+      "supplier_family": "spindle-kettle",
+      "split": "dev",
+      "language": "mixed",
+      "failure_mode": "math_total_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "Spindle Kettle Provisions\nفاتورة بيع / Sales invoice\nReference: SYN-D104\nCurrency: SYP\nSunflower oil | 3 l | 9000 | 27000\nخل تفاح | 2 لتر | 4500 | 9000\nSubtotal / المجموع الفرعي: 36000\nTax / الضريبة: 1800\nTotal / الإجمالي: 38700",
+        "invoice_number": "SYN-D104",
+        "invoice_date": "2026-02-04",
+        "supplier_name": "Spindle Kettle Provisions",
+        "currency": "SYP",
+        "stated_total": "38700",
+        "subtotal": "36000",
+        "tax_amount": "1800",
+        "lines": [
+          {"item_name": "Sunflower oil", "quantity": "3", "unit": "l", "unit_price": "9000", "line_total": "27000", "currency": "SYP"},
+          {"item_name": "خل تفاح", "quantity": "2", "unit": "لتر", "unit_price": "4500", "line_total": "9000", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Spindle Kettle Provisions",
+        "currency": "SYP",
+        "stated_total": "37800",
+        "calculated_line_sum": "36000",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-05-currency-unit",
+      "template_id": "thyme-arch-line-currency",
+      "supplier_family": "thyme-arch",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "فاتورة جملة SYN-D105\nمخزن قنطرة الزعتر\nعملة الفاتورة SYP\n01 زعتر مجفف — ٤ كغ × ٦٬٥٠٠ — ٢٦٬٠٠٠ USD\n02 سمّاق مطحون — ٢ كغ × ٥٬٠٠٠ — ١٠٬٠٠٠ SYP\nالمجموع قبل الضريبة ٣٦٬٠٠٠\nالضريبة ٠\nالإجمالي المستحق ٣٦٬٠٠٠ SYP",
+        "invoice_number": "SYN-D105",
+        "invoice_date": "٢٠٢٦-٠٢-٠٥",
+        "supplier_name": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "٣٦٬٠٠٠",
+        "subtotal": "٣٦٬٠٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "زعتر مجفف", "quantity": "٤", "unit": "كغ", "unit_price": "٦٬٥٠٠", "line_total": "٢٦٬٠٠٠", "currency": "USD"},
+          {"item_name": "سمّاق مطحون", "quantity": "٢", "unit": "كغ", "unit_price": "٥٬٠٠٠", "line_total": "١٠٬٠٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "36000",
+        "calculated_line_sum": "36000",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-06-ar-grain-clean",
+      "template_id": "rwaq-grain-grid",
+      "supplier_family": "rwaq-grain",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "معمل رواق الحب\nفاتورة توريد رقم SYN-D106 — ٢٠٢٦-٠٢-٠٦\nالعملة: SYP\nالصنف | الكمية | الوحدة | سعر الوحدة | القيمة\nأرز قصير الحبة | ٣٫٢٥ | كغ | ٨٬٤٠٠ | ٢٧٬٣٠٠\nعدس أحمر | ١٫٥ | كغ | ٥٬٧٠٠ | ٨٬٥٥٠\nالمجموع الفرعي: ٣٥٬٨٥٠ | الضريبة: ٠ | الإجمالي: ٣٥٬٨٥٠",
+        "invoice_number": "SYN-D106",
+        "invoice_date": "٢٠٢٦-٠٢-٠٦",
+        "supplier_name": "معمل رواق الحب",
+        "currency": "SYP",
+        "stated_total": "٣٥٬٨٥٠",
+        "subtotal": "٣٥٬٨٥٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "أرز قصير الحبة", "quantity": "٣٫٢٥", "unit": "كغ", "unit_price": "٨٬٤٠٠", "line_total": "٢٧٬٣٠٠", "currency": "SYP"},
+          {"item_name": "عدس أحمر", "quantity": "١٫٥", "unit": "كغ", "unit_price": "٥٬٧٠٠", "line_total": "٨٬٥٥٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معمل رواق الحب",
+        "currency": "SYP",
+        "stated_total": "35850",
+        "calculated_line_sum": "35850",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-07-carton-clean",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D107\nAmber Whisk Pantry | Issued 2026-02-07\nAmounts in USD\nDate syrup sachets: 2 cartons @ 12.40 = 24.80\nDried figs: 1 box @ 6.50 = 6.50\nMerchandise 31.30 / Tax 1.57 / Amount due 32.87",
+        "invoice_number": "SYN-D107",
+        "invoice_date": "2026-02-07",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "32.87",
+        "subtotal": "31.30",
+        "tax_amount": "1.57",
+        "lines": [
+          {"item_name": "Date syrup sachets", "quantity": "2", "unit": "cartons", "unit_price": "12.40", "line_total": "24.80", "currency": "USD"},
+          {"item_name": "Dried figs", "quantity": "1", "unit": "box", "unit_price": "6.50", "line_total": "6.50", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "32.87",
+        "calculated_line_sum": "31.30",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-08-five-line-drop",
+      "template_id": "dew-thread-market-slip",
+      "supplier_family": "dew-thread",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "bad_scan_digit_drop",
+      "frozen_ocr_extract": {
+        "raw_text": "بساتين خيط الندى — فاتورة خضار\nمرجع البيع SYN-D108 | ٢٠٢٦-٠٢-٠٨\nبندورة مطبخ: ٥ كجم × ٣٬٨٠٠ = ٥٧٬٠٠٠\nبصل أحمر: ٢ كجم × ٦٬٥٠٠ = ١٣٬٠٠٠\nخيار بلدي: ٣ كجم × ٤٬٢٠٠ = ١٢٬٦٠٠\nخس روماني: ٦ قطعة × ١٬٥٠٠ = ٩٬٠٠٠\nنعناع طازج: ٢٥٠ غ × ١٨ = ٤٬٥٠٠\nصافي الأصناف ٩٦٬١٠٠ | ضريبة ٠ | الإجمالي ٩٦٬١٠٠ SYP",
+        "invoice_number": "SYN-D108",
+        "invoice_date": "٢٠٢٦-٠٢-٠٨",
+        "supplier_name": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "٩٦٬١٠٠",
+        "subtotal": "٩٦٬١٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "بندورة مطبخ", "quantity": "٥", "unit": "كجم", "unit_price": "٣٬٨٠٠", "line_total": "٥٧٬٠٠٠", "currency": "SYP"},
+          {"item_name": "بصل أحمر", "quantity": "٢", "unit": "كجم", "unit_price": "٦٬٥٠٠", "line_total": "١٣٬٠٠٠", "currency": "SYP"},
+          {"item_name": "خيار بلدي", "quantity": "٣", "unit": "كجم", "unit_price": "٤٬٢٠٠", "line_total": "١٢٬٦٠٠", "currency": "SYP"},
+          {"item_name": "خس روماني", "quantity": "٦", "unit": "قطعة", "unit_price": "١٬٥٠٠", "line_total": "٩٬٠٠٠", "currency": "SYP"},
+          {"item_name": "نعناع طازج", "quantity": "٢٥٠", "unit": "غ", "unit_price": "١٨", "line_total": "٤٬٥٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "96100",
+        "calculated_line_sum": "96100",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-09-ar-digit-substitution",
+      "template_id": "thyme-arch-line-currency",
+      "supplier_family": "thyme-arch",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "math_total_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "فاتورة جملة SYN-D109 | ٢٠٢٦-٠٢-٠٩\nمخزن قنطرة الزعتر\nعملة الفاتورة SYP\n01 سمّاق مطحون — ١0 كغ × ٥٬٠٠٠ — ٧٥٬٠٠٠ SYP\n02 زعتر مجفف — ٢ كغ × ٦٬٥٠٠ — ١٣٬٠٠٠ SYP\nالمجموع قبل الضريبة ٨٨٬٠٠٠ | الضريبة ٠ | الإجمالي المستحق ٨٨٬٠٠٠ SYP",
+        "invoice_number": "SYN-D109",
+        "invoice_date": "٢٠٢٦-٠٢-٠٩",
+        "supplier_name": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "٨٨٬٠٠٠",
+        "subtotal": "٨٨٬٠٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "سمّاق مطحون", "quantity": "١0", "unit": "كغ", "unit_price": "٥٬٠٠٠", "line_total": "٧٥٬٠٠٠", "currency": "SYP"},
+          {"item_name": "زعتر مجفف", "quantity": "٢", "unit": "كغ", "unit_price": "٦٬٥٠٠", "line_total": "١٣٬٠٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "88000",
+        "calculated_line_sum": "88000",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-10-ar-supplier-alias",
+      "template_id": "thyme-arch-line-currency",
+      "supplier_family": "thyme-arch",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "similar_supplier_alias",
+      "frozen_ocr_extract": {
+        "raw_text": "فاتورة جملة SYN-D110 | ٢٠٢٦-٠٢-١٠\nمخزن قنطره الزعتر\nعملة الفاتورة SYP\n01 زعتر مجفف — ٢ كغ × ٦٬٥٠٠ — ١٣٬٠٠٠ SYP\n02 سمّاق مطحون — ٠٫٥ كغ × ٥٬٠٠٠ — ٢٬٥٠٠ SYP\nالمجموع قبل الضريبة ١٥٬٥٠٠ | الضريبة ٠ | الإجمالي المستحق ١٥٬٥٠٠ SYP",
+        "invoice_number": "SYN-D110",
+        "invoice_date": "٢٠٢٦-٠٢-١٠",
+        "supplier_name": "مخزن قنطره الزعتر",
+        "currency": "SYP",
+        "stated_total": "١٥٬٥٠٠",
+        "subtotal": "١٥٬٥٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "زعتر مجفف", "quantity": "٢", "unit": "كغ", "unit_price": "٦٬٥٠٠", "line_total": "١٣٬٠٠٠", "currency": "SYP"},
+          {"item_name": "سمّاق مطحون", "quantity": "٠٫٥", "unit": "كغ", "unit_price": "٥٬٠٠٠", "line_total": "٢٬٥٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "15500",
+        "calculated_line_sum": "15500",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-11-mixed-dairy-clean",
+      "template_id": "spindle-kettle-bilingual-invoice",
+      "supplier_family": "spindle-kettle",
+      "split": "dev",
+      "language": "mixed",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "Spindle Kettle Provisions\nفاتورة بيع / Sales invoice\nReference: SYN-D111 | Date: 2026-02-11\nCurrency: SYP\nWhole milk | 2.75 l | 8000 | 22000\nخل تفاح | 1.5 لتر | 4500 | 6750\nSubtotal / المجموع الفرعي: 28750\nTax / الضريبة: 0\nTotal / الإجمالي: 28750",
+        "invoice_number": "SYN-D111",
+        "invoice_date": "2026-02-11",
+        "supplier_name": "Spindle Kettle Provisions",
+        "currency": "SYP",
+        "stated_total": "28750",
+        "subtotal": "28750",
+        "tax_amount": "0",
+        "lines": [
+          {"item_name": "Whole milk", "quantity": "2.75", "unit": "l", "unit_price": "8000", "line_total": "22000", "currency": "SYP"},
+          {"item_name": "خل تفاح", "quantity": "1.5", "unit": "لتر", "unit_price": "4500", "line_total": "6750", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Spindle Kettle Provisions",
+        "currency": "SYP",
+        "stated_total": "28750",
+        "calculated_line_sum": "28750",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-12-kg-gram",
+      "template_id": "dew-thread-market-slip",
+      "supplier_family": "dew-thread",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "بساتين خيط الندى — فاتورة خضار\nمرجع البيع SYN-D112 | ٢٠٢٦-٠٢-١٢\nبصل أحمر: ٣ غ × ٦٬٥٠٠ = ١٩٬٥٠٠\nخيار بلدي: ٢ كجم × ٤٬٢٠٠ = ٨٬٤٠٠\nصافي الأصناف ٢٧٬٩٠٠ | ضريبة ٠ | الإجمالي ٢٧٬٩٠٠ SYP",
+        "invoice_number": "SYN-D112",
+        "invoice_date": "٢٠٢٦-٠٢-١٢",
+        "supplier_name": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "٢٧٬٩٠٠",
+        "subtotal": "٢٧٬٩٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "بصل أحمر", "quantity": "٣", "unit": "غ", "unit_price": "٦٬٥٠٠", "line_total": "١٩٬٥٠٠", "currency": "SYP"},
+          {"item_name": "خيار بلدي", "quantity": "٢", "unit": "كجم", "unit_price": "٤٬٢٠٠", "line_total": "٨٬٤٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "27900",
+        "calculated_line_sum": "27900",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-13-missing-date",
+      "template_id": "dew-thread-market-slip",
+      "supplier_family": "dew-thread",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "missing_critical_field",
+      "frozen_ocr_extract": {
+        "raw_text": "بساتين خيط الندى — فاتورة خضار\nمرجع البيع SYN-D113 | التاريخ:\nخيار بلدي: ١٫٧٥ كجم × ٤٬٢٠٠ = ٧٬٣٥٠\nبندورة مطبخ: ٢ كجم × ٣٬٨٠٠ = ٧٬٦٠٠\nصافي الأصناف ١٤٬٩٥٠ | ضريبة ٠ | الإجمالي ١٤٬٩٥٠ SYP",
+        "invoice_number": "SYN-D113",
+        "invoice_date": null,
+        "supplier_name": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "١٤٬٩٥٠",
+        "subtotal": "١٤٬٩٥٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "خيار بلدي", "quantity": "١٫٧٥", "unit": "كجم", "unit_price": "٤٬٢٠٠", "line_total": "٧٬٣٥٠", "currency": "SYP"},
+          {"item_name": "بندورة مطبخ", "quantity": "٢", "unit": "كجم", "unit_price": "٣٬٨٠٠", "line_total": "٧٬٦٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "بساتين خيط الندى",
+        "currency": "SYP",
+        "stated_total": "14950",
+        "calculated_line_sum": "14950",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-14-ar-pantry-clean",
+      "template_id": "thyme-arch-line-currency",
+      "supplier_family": "thyme-arch",
+      "split": "dev",
+      "language": "ar",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "فاتورة جملة SYN-D114 | ٢٠٢٦-٠٢-١٤\nمخزن قنطرة الزعتر\nعملة الفاتورة SYP\n01 قهوة مطحونة — ٢٥٠ غ × ١٢٠ — ٣٠٬٠٠٠ SYP\n02 زعتر مجفف — ٠٫٧٥ كغ × ٦٬٥٠٠ — ٤٬٨٧٥ SYP\nالمجموع قبل الضريبة ٣٤٬٨٧٥ | الضريبة ٠ | الإجمالي المستحق ٣٤٬٨٧٥ SYP",
+        "invoice_number": "SYN-D114",
+        "invoice_date": "٢٠٢٦-٠٢-١٤",
+        "supplier_name": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "٣٤٬٨٧٥",
+        "subtotal": "٣٤٬٨٧٥",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "قهوة مطحونة", "quantity": "٢٥٠", "unit": "غ", "unit_price": "١٢٠", "line_total": "٣٠٬٠٠٠", "currency": "SYP"},
+          {"item_name": "زعتر مجفف", "quantity": "٠٫٧٥", "unit": "كغ", "unit_price": "٦٬٥٠٠", "line_total": "٤٬٨٧٥", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "مخزن قنطرة الزعتر",
+        "currency": "SYP",
+        "stated_total": "34875",
+        "calculated_line_sum": "34875",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-15-zero-unit-price",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "zero_unit_price",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D115\nAmber Whisk Pantry | Issued 2026-02-15\nAmounts in USD\nVanilla pods: 1 piece @ 0.00 = 0.00\nOat flakes: 1.5 kg @ 3.20 = 4.80\nMerchandise 4.80 / Tax 0 / Amount due 4.80",
+        "invoice_number": "SYN-D115",
+        "invoice_date": "2026-02-15",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "4.80",
+        "subtotal": "4.80",
+        "tax_amount": "0",
+        "lines": [
+          {"item_name": "Vanilla pods", "quantity": "1", "unit": "piece", "unit_price": "0.00", "line_total": "0.00", "currency": "USD"},
+          {"item_name": "Oat flakes", "quantity": "1.5", "unit": "kg", "unit_price": "3.20", "line_total": "4.80", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "4.80",
+        "calculated_line_sum": "4.80",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-16-en-pantry-clean",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D116\nAmber Whisk Pantry | Issued 2026-02-16\nAmounts in USD\nOat flakes: 3.125 kg @ 3.20 = 10.00\nVanilla pods: 3 piece @ 0.75 = 2.25\nMerchandise 12.25 / Tax 0 / Amount due 12.25",
+        "invoice_number": "SYN-D116",
+        "invoice_date": "2026-02-16",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "12.25",
+        "subtotal": "12.25",
+        "tax_amount": "0",
+        "lines": [
+          {"item_name": "Oat flakes", "quantity": "3.125", "unit": "kg", "unit_price": "3.20", "line_total": "10.00", "currency": "USD"},
+          {"item_name": "Vanilla pods", "quantity": "3", "unit": "piece", "unit_price": "0.75", "line_total": "2.25", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "12.25",
+        "calculated_line_sum": "12.25",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-17-catalog-currency",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D117\nAmber Whisk Pantry | Issued 2026-02-17\nAmounts in SYP\nDate syrup sachets: 1 carton @ 12.40 = 12.40\nMerchandise 12.40 / Tax 0.50 / Amount due 12.90",
+        "invoice_number": "SYN-D117",
+        "invoice_date": "2026-02-17",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "SYP",
+        "stated_total": "12.90",
+        "subtotal": "12.40",
+        "tax_amount": "0.50",
+        "lines": [
+          {"item_name": "Date syrup sachets", "quantity": "1", "unit": "carton", "unit_price": "12.40", "line_total": "12.40", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "12.90",
+        "calculated_line_sum": "12.40",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-18-mixed-persian-digits-clean",
+      "template_id": "spindle-kettle-bilingual-invoice",
+      "supplier_family": "spindle-kettle",
+      "split": "dev",
+      "language": "mixed",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "Spindle Kettle Provisions\nفاتورة بيع / Sales invoice\nReference: SYN-D118 | Date: ۲۰۲۶-۰۲-۱۸\nCurrency: SYP\nOrange blossom water | ۱۲۵ مل | ۴۰ | ۵٬۰۰۰\nWhole milk | ۱٫۲۵ لتر | ۸٬۰۰۰ | ۱۰٬۰۰۰\nSubtotal / المجموع الفرعي: ۱۵٬۰۰۰\nTax / الضريبة: ۷۵۰\nTotal / الإجمالي: ۱۵٬۷۵۰",
+        "invoice_number": "SYN-D118",
+        "invoice_date": "۲۰۲۶-۰۲-۱۸",
+        "supplier_name": "Spindle Kettle Provisions",
+        "currency": "SYP",
+        "stated_total": "۱۵٬۷۵۰",
+        "subtotal": "۱۵٬۰۰۰",
+        "tax_amount": "۷۵۰",
+        "lines": [
+          {"item_name": "Orange blossom water", "quantity": "۱۲۵", "unit": "مل", "unit_price": "۴۰", "line_total": "۵٬۰۰۰", "currency": "SYP"},
+          {"item_name": "Whole milk", "quantity": "۱٫۲۵", "unit": "لتر", "unit_price": "۸٬۰۰۰", "line_total": "۱۰٬۰۰۰", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Spindle Kettle Provisions",
+        "currency": "SYP",
+        "stated_total": "15750",
+        "calculated_line_sum": "15000",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "dev-19-carton-piece",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D119\nAmber Whisk Pantry | Issued 2026-02-19\nAmounts in USD\nDate syrup sachets: 2 piece @ 12.40 = 24.80\nOat flakes: 1 kg @ 3.20 = 3.20\nMerchandise 28.00 / Tax 1.40 / Amount due 29.40",
+        "invoice_number": "SYN-D119",
+        "invoice_date": "2026-02-19",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "29.40",
+        "subtotal": "28.00",
+        "tax_amount": "1.40",
+        "lines": [
+          {"item_name": "Date syrup sachets", "quantity": "2", "unit": "piece", "unit_price": "12.40", "line_total": "24.80", "currency": "USD"},
+          {"item_name": "Oat flakes", "quantity": "1", "unit": "kg", "unit_price": "3.20", "line_total": "3.20", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "29.40",
+        "calculated_line_sum": "28.00",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "dev-20-cent-tax",
+      "template_id": "amber-whisk-priced-pick-list",
+      "supplier_family": "amber-whisk",
+      "split": "dev",
+      "language": "en",
+      "failure_mode": "math_total_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "SUPPLIER INVOICE / SYN-D120\nAmber Whisk Pantry | Issued 2026-02-20\nAmounts in USD\nOat flakes: 2.5 kg @ 3.20 = 8.00\nDried figs: 1 box @ 6.50 = 6.50\nMerchandise 14.50 / Tax 0.73 / Amount due 15.22",
+        "invoice_number": "SYN-D120",
+        "invoice_date": "2026-02-20",
+        "supplier_name": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "15.22",
+        "subtotal": "14.50",
+        "tax_amount": "0.73",
+        "lines": [
+          {"item_name": "Oat flakes", "quantity": "2.5", "unit": "kg", "unit_price": "3.20", "line_total": "8.00", "currency": "USD"},
+          {"item_name": "Dried figs", "quantity": "1", "unit": "box", "unit_price": "6.50", "line_total": "6.50", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Amber Whisk Pantry",
+        "currency": "USD",
+        "stated_total": "15.23",
+        "calculated_line_sum": "14.50",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-01-ar-clean",
+      "template_id": "pomegranate-feather-dual-column",
+      "supplier_family": "pomegranate-feather",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "بيان توريد للمطبخ\nالمورد: معصرة ريشة الرمان\nالرقم: SYN-H201\nدبس رمان — الكمية ٢٫٥ لتر — سعر اللتر ١٢٬٣٠٠ — القيمة ٣٠٬٧٥٠\nعصير ليمون — الكمية ٣ لتر — سعر اللتر ٤٬٣٠٠ — القيمة ١٢٬٩٠٠\nقيمة البضاعة ٤٣٬٦٥٠ SYP\nضريبة ٠\nالمبلغ المطلوب ٤٣٬٦٥٠ SYP",
+        "invoice_number": "SYN-H201",
+        "invoice_date": "٢٠٢٦-٠٣-٠١",
+        "supplier_name": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "٤٣٬٦٥٠",
+        "subtotal": "٤٣٬٦٥٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "دبس رمان", "quantity": "٢٫٥", "unit": "لتر", "unit_price": "١٢٬٣٠٠", "line_total": "٣٠٬٧٥٠", "currency": "SYP"},
+          {"item_name": "عصير ليمون", "quantity": "٣", "unit": "لتر", "unit_price": "٤٬٣٠٠", "line_total": "١٢٬٩٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "43650",
+        "calculated_line_sum": "43650",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-02-en-clean",
+      "template_id": "cinder-poppy-delivery-invoice",
+      "supplier_family": "cinder-poppy",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "Cinder Poppy Bakehouse Supply\nDelivery invoice #SYN-H202\nPretzel rolls, 24 piece, unit price 0.85 USD, extended 20.40 USD\nSesame buns, 18 piece, unit price 0.90 USD, extended 16.20 USD\nNet goods USD 36.60\nTax USD 1.83\nInvoice total USD 38.43",
+        "invoice_number": "SYN-H202",
+        "invoice_date": "2026-03-02",
+        "supplier_name": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "38.43",
+        "subtotal": "36.60",
+        "tax_amount": "1.83",
+        "lines": [
+          {"item_name": "Pretzel rolls", "quantity": "24", "unit": "piece", "unit_price": "0.85", "line_total": "20.40", "currency": "USD"},
+          {"item_name": "Sesame buns", "quantity": "18", "unit": "piece", "unit_price": "0.90", "line_total": "16.20", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "38.43",
+        "calculated_line_sum": "36.60",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-03-supplier-alias",
+      "template_id": "juniper-ladle-spice-ticket",
+      "supplier_family": "juniper-ladle",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "similar_supplier_alias",
+      "frozen_ocr_extract": {
+        "raw_text": "WHOLESALE DRY GOODS — SYN-H203\nSold by: Juniper Ladie Pantry\nDried thyme [250 g] @ USD 0.024/g   USD 6.00\nSea salt flakes [500 g] @ USD 0.011/g   USD 5.50\nSubtotal 11.50\nTax 0\nTOTAL USD 11.50",
+        "invoice_number": "SYN-H203",
+        "invoice_date": "2026-03-03",
+        "supplier_name": "Juniper Ladie Pantry",
+        "currency": "USD",
+        "stated_total": "11.50",
+        "subtotal": "11.50",
+        "tax_amount": "0",
+        "lines": [
+          {"item_name": "Dried thyme", "quantity": "250", "unit": "g", "unit_price": "0.024", "line_total": "6.00", "currency": "USD"},
+          {"item_name": "Sea salt flakes", "quantity": "500", "unit": "g", "unit_price": "0.011", "line_total": "5.50", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Juniper Ladle Pantry",
+        "currency": "USD",
+        "stated_total": "11.50",
+        "calculated_line_sum": "11.50",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-04-subtotal",
+      "template_id": "lemon-arch-boxed-order",
+      "supplier_family": "lemon-arch",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "math_total_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "أفران قوس الليمون\nفاتورة طلبية SYN-H204 (SYP)\nرقائق خبز، ٤ صندوق بسعر ٤٬٥٠٠، المبلغ ١٨٬٠٠٠\nكعك يانسون، ٢ صندوق بسعر ٣٬٠٠٠، المبلغ ٦٬٠٠٠\nقبل الضريبة: ٢٦٬٠٠٠\nقيمة الضريبة: ١٬٣٠٠\nالمبلغ الكلي: ٢٧٬٣٠٠",
+        "invoice_number": "SYN-H204",
+        "invoice_date": "٢٠٢٦-٠٣-٠٤",
+        "supplier_name": "أفران قوس الليمون",
+        "currency": "SYP",
+        "stated_total": "٢٧٬٣٠٠",
+        "subtotal": "٢٦٬٠٠٠",
+        "tax_amount": "١٬٣٠٠",
+        "lines": [
+          {"item_name": "رقائق خبز", "quantity": "٤", "unit": "صندوق", "unit_price": "٤٬٥٠٠", "line_total": "١٨٬٠٠٠", "currency": "SYP"},
+          {"item_name": "كعك يانسون", "quantity": "٢", "unit": "صندوق", "unit_price": "٣٬٠٠٠", "line_total": "٦٬٠٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "أفران قوس الليمون",
+        "currency": "SYP",
+        "stated_total": "27300",
+        "calculated_line_sum": "24000",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-05-missing-total",
+      "template_id": "slate-blossom-cold-chain-stub",
+      "supplier_family": "slate-blossom",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "missing_critical_field",
+      "frozen_ocr_extract": {
+        "raw_text": "Slate Blossom Chilled Goods / INVOICE\nNo. SYN-H205   Currency USD\n4 kg Strained yogurt @ 6.30 .......... 25.20\n2 box Halloumi blocks @ 12.40 ....... 24.80\nSUBTOTAL 50.00\nTAX 2.50\nTOTAL DUE",
+        "invoice_number": "SYN-H205",
+        "invoice_date": "2026-03-05",
+        "supplier_name": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": null,
+        "subtotal": "50.00",
+        "tax_amount": "2.50",
+        "lines": [
+          {"item_name": "Strained yogurt", "quantity": "4", "unit": "kg", "unit_price": "6.30", "line_total": "25.20", "currency": "USD"},
+          {"item_name": "Halloumi blocks", "quantity": "2", "unit": "box", "unit_price": "12.40", "line_total": "24.80", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "52.50",
+        "calculated_line_sum": "50.00",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-06-ar-press-clean",
+      "template_id": "pomegranate-feather-dual-column",
+      "supplier_family": "pomegranate-feather",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "بيان توريد للمطبخ\nالمورد: معصرة ريشة الرمان\nالرقم: SYN-H206 | التاريخ ٢٠٢٦-٠٣-٠٦\nدبس رمان — الكمية ١٫٢٥ لتر — سعر اللتر ١٢٬٣٠٠ — القيمة ١٥٬٣٧٥\nعصير ليمون — الكمية ٢ لتر — سعر اللتر ٤٬٣٠٠ — القيمة ٨٬٦٠٠\nقيمة البضاعة ٢٣٬٩٧٥ SYP\nضريبة ٠\nالمبلغ المطلوب ٢٣٬٩٧٥ SYP",
+        "invoice_number": "SYN-H206",
+        "invoice_date": "٢٠٢٦-٠٣-٠٦",
+        "supplier_name": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "٢٣٬٩٧٥",
+        "subtotal": "٢٣٬٩٧٥",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "دبس رمان", "quantity": "١٫٢٥", "unit": "لتر", "unit_price": "١٢٬٣٠٠", "line_total": "١٥٬٣٧٥", "currency": "SYP"},
+          {"item_name": "عصير ليمون", "quantity": "٢", "unit": "لتر", "unit_price": "٤٬٣٠٠", "line_total": "٨٬٦٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "23975",
+        "calculated_line_sum": "23975",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-07-carton-clean",
+      "template_id": "cinder-poppy-delivery-invoice",
+      "supplier_family": "cinder-poppy",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "Cinder Poppy Bakehouse Supply\nDelivery invoice #SYN-H207 | 2026-03-07\nBrioche sliders, 4 carton, unit price 6.25 USD, extended 25.00 USD\nRye loaves, 2 piece, unit price 2.40 USD, extended 4.80 USD\nNet goods USD 29.80\nTax USD 1.49\nInvoice total USD 31.29",
+        "invoice_number": "SYN-H207",
+        "invoice_date": "2026-03-07",
+        "supplier_name": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "31.29",
+        "subtotal": "29.80",
+        "tax_amount": "1.49",
+        "lines": [
+          {"item_name": "Brioche sliders", "quantity": "4", "unit": "carton", "unit_price": "6.25", "line_total": "25.00", "currency": "USD"},
+          {"item_name": "Rye loaves", "quantity": "2", "unit": "piece", "unit_price": "2.40", "line_total": "4.80", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "31.29",
+        "calculated_line_sum": "29.80",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-08-five-line-cent-tax",
+      "template_id": "cinder-poppy-delivery-invoice",
+      "supplier_family": "cinder-poppy",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "math_total_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "Cinder Poppy Bakehouse Supply\nDelivery invoice #SYN-H208 | 2026-03-08\nPretzel rolls, 12 piece, unit price 0.85 USD, extended 10.20 USD\nSesame buns, 10 piece, unit price 0.90 USD, extended 9.00 USD\nRye loaves, 3 piece, unit price 2.40 USD, extended 7.20 USD\nSourdough crisps, 2 box, unit price 3.35 USD, extended 6.70 USD\nBrioche sliders, 1 carton, unit price 6.25 USD, extended 6.25 USD\nNet goods USD 39.35\nTax USD 1.97\nInvoice total USD 41.31",
+        "invoice_number": "SYN-H208",
+        "invoice_date": "2026-03-08",
+        "supplier_name": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "41.31",
+        "subtotal": "39.35",
+        "tax_amount": "1.97",
+        "lines": [
+          {"item_name": "Pretzel rolls", "quantity": "12", "unit": "piece", "unit_price": "0.85", "line_total": "10.20", "currency": "USD"},
+          {"item_name": "Sesame buns", "quantity": "10", "unit": "piece", "unit_price": "0.90", "line_total": "9.00", "currency": "USD"},
+          {"item_name": "Rye loaves", "quantity": "3", "unit": "piece", "unit_price": "2.40", "line_total": "7.20", "currency": "USD"},
+          {"item_name": "Sourdough crisps", "quantity": "2", "unit": "box", "unit_price": "3.35", "line_total": "6.70", "currency": "USD"},
+          {"item_name": "Brioche sliders", "quantity": "1", "unit": "carton", "unit_price": "6.25", "line_total": "6.25", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "41.32",
+        "calculated_line_sum": "39.35",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-09-ar-digit-substitution",
+      "template_id": "pomegranate-feather-dual-column",
+      "supplier_family": "pomegranate-feather",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "math_total_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "بيان توريد للمطبخ\nالمورد: معصرة ريشة الرمان\nالرقم: SYN-H209 | التاريخ ٢٠٢٦-٠٣-٠٩\nدبس رمان — الكمية 7 لتر — سعر اللتر ١٢٬٣٠٠ — القيمة ٧٣٬٨٠٠\nعصير ليمون — الكمية ٢ لتر — سعر اللتر ٤٬٣٠٠ — القيمة ٨٬٦٠٠\nقيمة البضاعة ٨٢٬٤٠٠ SYP\nضريبة ٠\nالمبلغ المطلوب ٨٢٬٤٠٠ SYP",
+        "invoice_number": "SYN-H209",
+        "invoice_date": "٢٠٢٦-٠٣-٠٩",
+        "supplier_name": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "٨٢٬٤٠٠",
+        "subtotal": "٨٢٬٤٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "دبس رمان", "quantity": "7", "unit": "لتر", "unit_price": "١٢٬٣٠٠", "line_total": "٧٣٬٨٠٠", "currency": "SYP"},
+          {"item_name": "عصير ليمون", "quantity": "٢", "unit": "لتر", "unit_price": "٤٬٣٠٠", "line_total": "٨٬٦٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "82400",
+        "calculated_line_sum": "82400",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-10-ar-supplier-alias",
+      "template_id": "pomegranate-feather-dual-column",
+      "supplier_family": "pomegranate-feather",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "similar_supplier_alias",
+      "frozen_ocr_extract": {
+        "raw_text": "بيان توريد للمطبخ\nالمورد: معصرة ريشه الرمان\nالرقم: SYN-H210 | التاريخ ٢٠٢٦-٠٣-١٠\nعصير ليمون — الكمية ٢ لتر — سعر اللتر ٤٬٣٠٠ — القيمة ٨٬٦٠٠\nدبس رمان — الكمية ١ لتر — سعر اللتر ١٢٬٣٠٠ — القيمة ١٢٬٣٠٠\nقيمة البضاعة ٢٠٬٩٠٠ SYP\nضريبة ٠\nالمبلغ المطلوب ٢٠٬٩٠٠ SYP",
+        "invoice_number": "SYN-H210",
+        "invoice_date": "٢٠٢٦-٠٣-١٠",
+        "supplier_name": "معصرة ريشه الرمان",
+        "currency": "SYP",
+        "stated_total": "٢٠٬٩٠٠",
+        "subtotal": "٢٠٬٩٠٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "عصير ليمون", "quantity": "٢", "unit": "لتر", "unit_price": "٤٬٣٠٠", "line_total": "٨٬٦٠٠", "currency": "SYP"},
+          {"item_name": "دبس رمان", "quantity": "١", "unit": "لتر", "unit_price": "١٢٬٣٠٠", "line_total": "١٢٬٣٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "20900",
+        "calculated_line_sum": "20900",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-11-mixed-spices-clean",
+      "template_id": "juniper-ladle-bilingual-spice-ticket",
+      "supplier_family": "juniper-ladle",
+      "split": "holdout",
+      "language": "mixed",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "WHOLESALE DRY GOODS / مواد غذائية جافة — SYN-H211\nSold by / المورد: Juniper Ladle Pantry\nDate / التاريخ: ٢٠٢٦-٠٣-١١\nDried thyme [١٢٥ غ] @ USD ٠٫٠٢٤/غ   USD ٣٫٠٠\nSea salt flakes [٣٠٠ غ] @ USD ٠٫٠١١/غ   USD ٣٫٣٠\nSubtotal / الصافي ٦٫٣٠\nTax / الضريبة ٠٫٣٢\nTOTAL / الإجمالي USD ٦٫٦٢",
+        "invoice_number": "SYN-H211",
+        "invoice_date": "٢٠٢٦-٠٣-١١",
+        "supplier_name": "Juniper Ladle Pantry",
+        "currency": "USD",
+        "stated_total": "٦٫٦٢",
+        "subtotal": "٦٫٣٠",
+        "tax_amount": "٠٫٣٢",
+        "lines": [
+          {"item_name": "Dried thyme", "quantity": "١٢٥", "unit": "غ", "unit_price": "٠٫٠٢٤", "line_total": "٣٫٠٠", "currency": "USD"},
+          {"item_name": "Sea salt flakes", "quantity": "٣٠٠", "unit": "غ", "unit_price": "٠٫٠١١", "line_total": "٣٫٣٠", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Juniper Ladle Pantry",
+        "currency": "USD",
+        "stated_total": "6.62",
+        "calculated_line_sum": "6.30",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-12-line-currency",
+      "template_id": "slate-blossom-cold-chain-stub",
+      "supplier_family": "slate-blossom",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "Slate Blossom Chilled Goods / INVOICE\nNo. SYN-H212   Date 2026-03-12   Currency USD\n2 kg Strained yogurt @ 6.30 .......... 12.60 USD\n1 box Halloumi blocks @ 12.40 ....... 12.40 SYP\nSUBTOTAL 25.00\nTAX 1.25\nTOTAL DUE 26.25",
+        "invoice_number": "SYN-H212",
+        "invoice_date": "2026-03-12",
+        "supplier_name": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "26.25",
+        "subtotal": "25.00",
+        "tax_amount": "1.25",
+        "lines": [
+          {"item_name": "Strained yogurt", "quantity": "2", "unit": "kg", "unit_price": "6.30", "line_total": "12.60", "currency": "USD"},
+          {"item_name": "Halloumi blocks", "quantity": "1", "unit": "box", "unit_price": "12.40", "line_total": "12.40", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "26.25",
+        "calculated_line_sum": "25.00",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-13-missing-date",
+      "template_id": "lemon-arch-boxed-order",
+      "supplier_family": "lemon-arch",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "missing_critical_field",
+      "frozen_ocr_extract": {
+        "raw_text": "أفران قوس الليمون\nفاتورة طلبية SYN-H213 (SYP) | التاريخ:\nرقائق خبز، ٣ صندوق بسعر ٤٬٥٠٠، المبلغ ١٣٬٥٠٠\nكعك يانسون، ١ صندوق بسعر ٣٬٠٠٠، المبلغ ٣٬٠٠٠\nقبل الضريبة: ١٦٬٥٠٠\nقيمة الضريبة: ٨٢٥\nالمبلغ الكلي: ١٧٬٣٢٥",
+        "invoice_number": "SYN-H213",
+        "invoice_date": null,
+        "supplier_name": "أفران قوس الليمون",
+        "currency": "SYP",
+        "stated_total": "١٧٬٣٢٥",
+        "subtotal": "١٦٬٥٠٠",
+        "tax_amount": "٨٢٥",
+        "lines": [
+          {"item_name": "رقائق خبز", "quantity": "٣", "unit": "صندوق", "unit_price": "٤٬٥٠٠", "line_total": "١٣٬٥٠٠", "currency": "SYP"},
+          {"item_name": "كعك يانسون", "quantity": "١", "unit": "صندوق", "unit_price": "٣٬٠٠٠", "line_total": "٣٬٠٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "أفران قوس الليمون",
+        "currency": "SYP",
+        "stated_total": "17325",
+        "calculated_line_sum": "16500",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-14-en-chilled-clean",
+      "template_id": "slate-blossom-cold-chain-stub",
+      "supplier_family": "slate-blossom",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "Slate Blossom Chilled Goods / INVOICE\nNo. SYN-H214   Date 2026-03-14   Currency USD\n2.5 L Drinking kefir @ 2.80 .......... 7.00\n1 box Halloumi blocks @ 12.40 ....... 12.40\nSUBTOTAL 19.40\nTAX 0.97\nTOTAL DUE 20.37",
+        "invoice_number": "SYN-H214",
+        "invoice_date": "2026-03-14",
+        "supplier_name": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "20.37",
+        "subtotal": "19.40",
+        "tax_amount": "0.97",
+        "lines": [
+          {"item_name": "Drinking kefir", "quantity": "2.5", "unit": "L", "unit_price": "2.80", "line_total": "7.00", "currency": "USD"},
+          {"item_name": "Halloumi blocks", "quantity": "1", "unit": "box", "unit_price": "12.40", "line_total": "12.40", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "20.37",
+        "calculated_line_sum": "19.40",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-15-zero-unit-price",
+      "template_id": "slate-blossom-cold-chain-stub",
+      "supplier_family": "slate-blossom",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "zero_unit_price",
+      "frozen_ocr_extract": {
+        "raw_text": "Slate Blossom Chilled Goods / INVOICE\nNo. SYN-H215   Date 2026-03-15   Currency USD\n1 kg Strained yogurt @ 0.00 .......... 0.00\n3 L Drinking kefir @ 2.80 ........... 8.40\nSUBTOTAL 8.40\nTAX 0.42\nTOTAL DUE 8.82",
+        "invoice_number": "SYN-H215",
+        "invoice_date": "2026-03-15",
+        "supplier_name": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "8.82",
+        "subtotal": "8.40",
+        "tax_amount": "0.42",
+        "lines": [
+          {"item_name": "Strained yogurt", "quantity": "1", "unit": "kg", "unit_price": "0.00", "line_total": "0.00", "currency": "USD"},
+          {"item_name": "Drinking kefir", "quantity": "3", "unit": "L", "unit_price": "2.80", "line_total": "8.40", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Slate Blossom Chilled Goods",
+        "currency": "USD",
+        "stated_total": "8.82",
+        "calculated_line_sum": "8.40",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-16-carton-piece",
+      "template_id": "cinder-poppy-delivery-invoice",
+      "supplier_family": "cinder-poppy",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "Cinder Poppy Bakehouse Supply\nDelivery invoice #SYN-H216 | 2026-03-16\nBrioche sliders, 1 piece, unit price 6.25 USD, extended 6.25 USD\nRye loaves, 2 piece, unit price 2.40 USD, extended 4.80 USD\nNet goods USD 11.05\nTax USD 0.55\nInvoice total USD 11.60",
+        "invoice_number": "SYN-H216",
+        "invoice_date": "2026-03-16",
+        "supplier_name": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "11.60",
+        "subtotal": "11.05",
+        "tax_amount": "0.55",
+        "lines": [
+          {"item_name": "Brioche sliders", "quantity": "1", "unit": "piece", "unit_price": "6.25", "line_total": "6.25", "currency": "USD"},
+          {"item_name": "Rye loaves", "quantity": "2", "unit": "piece", "unit_price": "2.40", "line_total": "4.80", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Cinder Poppy Bakehouse Supply",
+        "currency": "USD",
+        "stated_total": "11.60",
+        "calculated_line_sum": "11.05",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-17-ar-bakery-clean",
+      "template_id": "lemon-arch-boxed-order",
+      "supplier_family": "lemon-arch",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "أفران قوس الليمون\nفاتورة طلبية SYN-H217 (SYP) | التاريخ ٢٠٢٦-٠٣-١٧\nرقائق خبز، ٤ صندوق بسعر ٤٬٥٠٠، المبلغ ١٨٬٠٠٠\nكعك يانسون، ٣ صندوق بسعر ٣٬٠٠٠، المبلغ ٩٬٠٠٠\nقبل الضريبة: ٢٧٬٠٠٠\nقيمة الضريبة: ١٬٣٥٠\nالمبلغ الكلي: ٢٨٬٣٥٠",
+        "invoice_number": "SYN-H217",
+        "invoice_date": "٢٠٢٦-٠٣-١٧",
+        "supplier_name": "أفران قوس الليمون",
+        "currency": "SYP",
+        "stated_total": "٢٨٬٣٥٠",
+        "subtotal": "٢٧٬٠٠٠",
+        "tax_amount": "١٬٣٥٠",
+        "lines": [
+          {"item_name": "رقائق خبز", "quantity": "٤", "unit": "صندوق", "unit_price": "٤٬٥٠٠", "line_total": "١٨٬٠٠٠", "currency": "SYP"},
+          {"item_name": "كعك يانسون", "quantity": "٣", "unit": "صندوق", "unit_price": "٣٬٠٠٠", "line_total": "٩٬٠٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "أفران قوس الليمون",
+        "currency": "SYP",
+        "stated_total": "28350",
+        "calculated_line_sum": "27000",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-18-missing-header-currency",
+      "template_id": "juniper-ladle-spice-ticket",
+      "supplier_family": "juniper-ladle",
+      "split": "holdout",
+      "language": "en",
+      "failure_mode": "missing_critical_field",
+      "frozen_ocr_extract": {
+        "raw_text": "WHOLESALE DRY GOODS — SYN-H218\nSold by: Juniper Ladle Pantry\nIssued 2026-03-18 | Invoice currency:\nSea salt flakes [350 g] @ USD 0.011/g   USD 3.85\nDried thyme [500 g] @ USD 0.024/g   USD 12.00\nSubtotal 15.85\nTax 0\nTOTAL 15.85",
+        "invoice_number": "SYN-H218",
+        "invoice_date": "2026-03-18",
+        "supplier_name": "Juniper Ladle Pantry",
+        "currency": null,
+        "stated_total": "15.85",
+        "subtotal": "15.85",
+        "tax_amount": "0",
+        "lines": [
+          {"item_name": "Sea salt flakes", "quantity": "350", "unit": "g", "unit_price": "0.011", "line_total": "3.85", "currency": "USD"},
+          {"item_name": "Dried thyme", "quantity": "500", "unit": "g", "unit_price": "0.024", "line_total": "12.00", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Juniper Ladle Pantry",
+        "currency": "USD",
+        "stated_total": "15.85",
+        "calculated_line_sum": "15.85",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    },
+    {
+      "fixture_id": "holdout-19-exact-decimal",
+      "template_id": "juniper-ladle-bilingual-spice-ticket",
+      "supplier_family": "juniper-ladle",
+      "split": "holdout",
+      "language": "mixed",
+      "failure_mode": "clean",
+      "frozen_ocr_extract": {
+        "raw_text": "WHOLESALE DRY GOODS / مواد غذائية جافة — SYN-H219\nSold by / المورد: Juniper Ladle Pantry\nDate / التاريخ: ٢٠٢٦-٠٣-١٩\nDried thyme [١٢٫٥ غ] @ USD ٠٫٠٠٨/غ   USD ٠٫١٠\nSea salt flakes [١٢٫٥ غ] @ USD ٠٫٠١٦/غ   USD ٠٫٢٠\nSubtotal / الصافي ٠٫٣٠\nTax / الضريبة ٠\nTOTAL / الإجمالي USD ٠٫٣٠",
+        "invoice_number": "SYN-H219",
+        "invoice_date": "٢٠٢٦-٠٣-١٩",
+        "supplier_name": "Juniper Ladle Pantry",
+        "currency": "USD",
+        "stated_total": "٠٫٣٠",
+        "subtotal": "٠٫٣٠",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "Dried thyme", "quantity": "١٢٫٥", "unit": "غ", "unit_price": "٠٫٠٠٨", "line_total": "٠٫١٠", "currency": "USD"},
+          {"item_name": "Sea salt flakes", "quantity": "١٢٫٥", "unit": "غ", "unit_price": "٠٫٠١٦", "line_total": "٠٫٢٠", "currency": "USD"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "Juniper Ladle Pantry",
+        "currency": "USD",
+        "stated_total": "0.30",
+        "calculated_line_sum": "0.30",
+        "expected_disposition": "READY"
+      }
+    },
+    {
+      "fixture_id": "holdout-20-balanced-unit",
+      "template_id": "pomegranate-feather-dual-column",
+      "supplier_family": "pomegranate-feather",
+      "split": "holdout",
+      "language": "ar",
+      "failure_mode": "currency_unit_mismatch",
+      "frozen_ocr_extract": {
+        "raw_text": "بيان توريد للمطبخ\nالمورد: معصرة ريشة الرمان\nالرقم: SYN-H220 | التاريخ ٢٠٢٦-٠٣-٢٠\nعصير ليمون — الكمية ٧٥٠ مل — سعر الوحدة ٤٫٣ — القيمة ٣٬٢٢٥\nماء زهر — الكمية ١٠٠ مل — سعر الوحدة ٣٥ — القيمة ٣٬٥٠٠\nقيمة البضاعة ٦٬٧٢٥ SYP\nضريبة ٠\nالمبلغ المطلوب ٦٬٧٢٥ SYP",
+        "invoice_number": "SYN-H220",
+        "invoice_date": "٢٠٢٦-٠٣-٢٠",
+        "supplier_name": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "٦٬٧٢٥",
+        "subtotal": "٦٬٧٢٥",
+        "tax_amount": "٠",
+        "lines": [
+          {"item_name": "عصير ليمون", "quantity": "٧٥٠", "unit": "مل", "unit_price": "٤٫٣", "line_total": "٣٬٢٢٥", "currency": "SYP"},
+          {"item_name": "ماء زهر", "quantity": "١٠٠", "unit": "مل", "unit_price": "٣٥", "line_total": "٣٬٥٠٠", "currency": "SYP"}
+        ]
+      },
+      "ground_truth": {
+        "supplier_canonical": "معصرة ريشة الرمان",
+        "currency": "SYP",
+        "stated_total": "6725",
+        "calculated_line_sum": "6725",
+        "expected_disposition": "NEEDS_REVIEW"
+      }
+    }
+  ]
+}

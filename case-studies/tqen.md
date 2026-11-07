@@ -6,6 +6,17 @@
 
 **Stack:** Next.js/TypeScript, FastAPI, PostgreSQL/Supabase, Haystack, Qdrant, PaddleOCR and SSE.
 
+[Invoice reliability lab and results](../labs/tqen-invoice-reliability/RESULTS.md): a replay of 40 frozen, synthetic OCR extracts, split evenly into development and holdout with no shared templates or supplier families. The assisted gate uses a known synthetic supplier catalog for both splits. On the 20 holdout cases, the baseline marked all 20 `READY`, including 12 labeled unsafe; the assisted gate marked 8 `READY` and sent 12 to review, with no wrong-ready cases in this replay.
+
+The assisted gate checks exact supplier and item identity, compatible units, currency, a valid invoice date, positive quantity and unit price, and exact reconciliation of lines, subtotal, tax and total. A near supplier name is only a suggestion. `READY` means the checks passed; it does not approve or write an invoice. The lab does not run OCR, call providers, or measure production accuracy.
+
+Run from the showcase repository root with Python 3.10 or newer (use `python3` if your shell has no `python` command). The evaluator has no third-party dependencies; the second command requires pytest.
+
+```sh
+python labs/tqen-invoice-reliability/run_eval.py --fixtures labs/tqen-invoice-reliability/fixtures/invoices_v1.json
+python -m pytest -q labs/tqen-invoice-reliability
+```
+
 ## Product problem
 
 Restaurant teams need to turn supplier documents and fragmented operational information into reviewable work. OCR is useful for extraction; it is insufficient authority for supplier matching, invoice verification or business mutations. Conversational answers need a separate, tenant-scoped retrieval path.

@@ -1,9 +1,14 @@
 """Synthetic data only; protocol tests use real SDK stdio JSON-RPC, no mocks."""
 import json
 import sys
+from importlib.util import find_spec
 from pathlib import Path
 
 import pytest
+
+if find_spec("mcp") is None:
+    pytest.importorskip("mcp", exc_type=ModuleNotFoundError)
+
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from pydantic import ValidationError

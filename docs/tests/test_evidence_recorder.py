@@ -5,6 +5,11 @@ python -m pytest -q -p no:cacheprovider docs/tests/test_evidence_recorder.py
 import importlib.util
 from pathlib import Path
 
+import pytest
+
+if importlib.util.find_spec("opentelemetry") is None or importlib.util.find_spec("opentelemetry.sdk") is None:
+    pytest.importorskip("opentelemetry.sdk", exc_type=ModuleNotFoundError)
+
 
 RECORDER = Path(__file__).resolve().parents[1] / "evidence/generate_evidence.py"
 SPEC = importlib.util.spec_from_file_location("explorer_evidence_recorder", RECORDER)

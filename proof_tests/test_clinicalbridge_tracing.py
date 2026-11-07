@@ -1,5 +1,11 @@
 """Portable checks for the exported, payload-free tracing helper."""
+from importlib.util import find_spec
+
 import pytest
+
+if find_spec("opentelemetry") is None or find_spec("opentelemetry.sdk") is None:
+    pytest.importorskip("opentelemetry.sdk", exc_type=ModuleNotFoundError)
+
 from opentelemetry.sdk.trace.export import SpanExporter, SpanExportResult
 from opentelemetry.trace import StatusCode
 
