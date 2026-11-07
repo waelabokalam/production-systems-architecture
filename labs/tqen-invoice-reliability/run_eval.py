@@ -167,6 +167,7 @@ def render_report(dataset: dict[str, Any], fixtures_path: str | Path) -> str:
         "known synthetic supplier catalog spanning both splits. No OCR runs here: this measures "
         "validation policy, not OCR accuracy, production performance, or approval authority.", "",
         "Reproduce from the lab directory:", "", "```sh", command, "```", "",
+        "For the separate controlled OCR timeout and safe retry, see the [operational runbook](RUNBOOK.md).", "",
         "## Dispositions", "",
         "Correct-ready and wrong-ready are READY decisions compared with the independent "
         "expected disposition. Review rate is NEEDS_REVIEW divided by all fixtures in the split.", "",

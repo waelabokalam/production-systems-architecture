@@ -8,6 +8,8 @@ Reproduce from the lab directory:
 python run_eval.py --fixtures fixtures/invoices_v1.json
 ```
 
+For the separate controlled OCR timeout and safe retry, see the [operational runbook](RUNBOOK.md).
+
 ## Dispositions
 
 Correct-ready and wrong-ready are READY decisions compared with the independent expected disposition. Review rate is NEEDS_REVIEW divided by all fixtures in the split.

@@ -17,6 +17,16 @@ python labs/tqen-invoice-reliability/run_eval.py --fixtures labs/tqen-invoice-re
 python -m pytest -q labs/tqen-invoice-reliability
 ```
 
+### Controlled OCR failure and recovery
+
+The [operational runbook](../labs/tqen-invoice-reliability/RUNBOOK.md) shows how to diagnose a timeout without exposing invoice contents. The simulation discards a partial OCR stream and sends the invoice to review with `ERR_OCR_TIMEOUT`. A complete retry replaces an unedited draft; if a reviewer has already made changes, the retry is held as a separate suggestion. Replaying the same retry request does not add line items or record another attempt. No branch approves an invoice or posts to the ledger.
+
+```sh
+python labs/tqen-invoice-reliability/trace_failure_demo.py
+```
+
+The demo uses an in-memory OpenTelemetry exporter when the optional SDK is present and otherwise runs without it. This is synthetic failure injection, separate from the benchmark and from live OCR measurements.
+
 ## Product problem
 
 Restaurant teams need to turn supplier documents and fragmented operational information into reviewable work. OCR is useful for extraction; it is insufficient authority for supplier matching, invoice verification or business mutations. Conversational answers need a separate, tenant-scoped retrieval path.
